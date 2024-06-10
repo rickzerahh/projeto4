@@ -1,0 +1,30 @@
+<h1>Bibliotecas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Endereço</th>
+      <th>Cidade</th>
+      <th>País</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bibliotecas.each do |biblioteca| %>
+      <tr>
+        <td><%= biblioteca.nome_biblioteca %></td>
+        <td><%= biblioteca.endereco %></td>
+        <td><%= biblioteca.cidade %></td>
+        <td><%= biblioteca.pais %></td>
+        <td>
+          <%= link_to 'Show', biblioteca_path(biblioteca) %>
+          <%= link_to 'Edit', edit_biblioteca_path(biblioteca) %>
+          <%= link_to 'Destroy', biblioteca_path(biblioteca), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Biblioteca', new_biblioteca_path %>

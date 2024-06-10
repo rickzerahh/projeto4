@@ -1,0 +1,30 @@
+<h1>Livros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Autor</th>
+      <th>Ano de Lançamento</th>
+      <th>Valor</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @livros.each do |livro| %>
+      <tr>
+        <td><%= livro.titulo_livro %></td>
+        <td><%= livro.autor.nome_autor %></td>
+        <td><%= livro.ano_lancamento %></td>
+        <td><%= livro.valor_livro %></td>
+        <td>
+          <%= link_to 'Show', livro_path(livro) %>
+          <%= link_to 'Edit', edit_livro_path(livro) %>
+          <%= link_to 'Destroy', livro_path(livro), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Livro', new_livro_path %>
